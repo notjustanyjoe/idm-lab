@@ -1,0 +1,10 @@
+---
+collections:
+  # With just the collection name
+  # Actual RedHat approved role names
+  # - name: redhat.rhel_idm
+  # - name: redhat.rhel_system_roles
+  - name: freeipa.ansible_freeipa
+  - name: fedora.linux_system_roles
+  - name: microsoft.ad
+  - name: ansible.windows

@@ -18,22 +18,22 @@ all:
         node2.{{ shortname }}.{{ root_domain }}:
   vars:
 # Global variables
-    admin_password: "" # Administrator password used for all applications
-    ad_admin_password: "" # Administrator password for Windows Admin
-    root_domain: "" # Root domain (also used as Windows domain)
-    shortname: "" # Sub-domain
+    admin_password: "redhat123#" # Administrator password used for all applications
+    ad_admin_password: "redhat123#" # Administrator password for Windows Admin
+    root_domain: "example.com" # Root domain (also used as Windows domain)
+    shortname: "idm" # Sub-domain
     domain: "{{ shortname }}.{{ root_domain }}" # Full domain name
-    third: "" # Third octect of subnet used.
-    user_password: "" # initial passwords for users
-    idmpri_ip: "" # First IdM server IP
-    idmrep_ip: "" # Second IdM server IP
-    winsrv_ip: "" # Windows server IP
+    third: "56" # Third octect of subnet used.
+    user_password: "passw0rd" # initial passwords for users
+    idmpri_ip: "192.168.56.20" # First IdM server IP
+    idmrep_ip: "192.168.56.21" # Second IdM server IP
+    winsrv_ip: "192.168.56.10" # Windows server IP
 # IdM variables
     ipaserver_domain: "{{ domain }}"
     ipaserver_realm: "{{ domain | upper }}"
     ipaserver_setup_dns: true # set to true if IdM will have integrated DNS, else comment out or set to false
     ipaserver_setup_adtrust: true # set to true if you will be having an AD trust
-    ipaserver_reverse_zones: ".in-addr.arpa" # IP in reverse notation
+    ipaserver_reverse_zones: "{{ third }}.168.192.in-addr.arpa" # IP in reverse notation
     ipaserver_allow_zone_overlap: true # Set to true if the domain is already resolvable
 #    ipaserver_forwarders: "" # Only needed if you need to forward DNS queries
 #    ipaserver_forward_policy: first # Only needed if you need to forward DNS queries
